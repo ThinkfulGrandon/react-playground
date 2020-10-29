@@ -1,28 +1,39 @@
 import React from 'react';
 
 class Accordion extends React.Component {
+        
     static defaultProps = {
         sections: [],
     }
     state = {
-        currentTabIndex: 0
+        currentTabIndex: null,
     };
     
     handleButtonClicks = (index) => {
         console.log('button clicked', {index} )
         this.setState({currentTabIndex: index})
     }
-
-
     renderButtons() {
         return (
             this.props.sections.map((tab, index) => (
                 <li key={index}>
-                    <button onClick = { () => {this.handleButtonClicks(index)} }>
+                    <button key={index} onClick = { () => {this.handleButtonClicks(index)} }>
                         {tab.title}
+                        
                     </button>
+                    {this.state.currentTabIndex === index ? this.renderContent() : ""}
                 </li>
             ))
+        )
+    }
+
+    renderContent() {
+        const currentTab = this.props.sections[this.state.currentTabIndex]
+        return(
+            <div className="content">
+                {currentTab.content}
+            </div>
+            
         )
     }
 
@@ -31,6 +42,7 @@ class Accordion extends React.Component {
             <div>
                 <ul>
                     {this.renderButtons()}
+                    
                 </ul>
             </div>
         )
