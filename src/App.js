@@ -54,7 +54,7 @@ class App extends Component {
         <hr />
         <Bomb />
         <hr />
-        <Roulette chamber = { Math.ceil(Math.random() * 8) }/>
+        <Roulette chamber = {8}/>
         <hr />
         <Tabs tabs={tabsProp}/>
         <hr />

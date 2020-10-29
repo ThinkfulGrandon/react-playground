@@ -13,7 +13,7 @@ class DemonymApp extends Component {
         }
     }
     componentDidMount() {
-        fetch('https://country.register.gov.uk/recordsWWWWW.json?page-size=5000')
+        fetch('https://country.register.gov.uk/records.json?page-size=5000')
             .then(response => {
                 console.log('About to check for errors')
                 if(!response.ok) {

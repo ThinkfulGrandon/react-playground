@@ -23,8 +23,8 @@ class CountrySelector extends React.Component {
                     <label htmlFor="country">Select a country:</label>
                     <select 
                         id="country" 
-                        name="country">
-                            onChange={e=> this.changeSelection(e.target.value)}
+                        name="country"
+                            onChange={e => this.changeSelection(e.target.value)}>
                         <option value="none">select one...</option>
                         {options}
                     </select>
