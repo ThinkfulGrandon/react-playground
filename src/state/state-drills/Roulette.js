@@ -12,38 +12,20 @@ class Roulette extends React.Component {
         bulletInChamber: 8,
     }
 
-    componentWillUnmount() {
-        clearTimeout(this.timeout)
-    }
+    handleTriggerPull() {
+         console.log('hi')
 
-    triggerPull = () => {
-        this.setState( {spinningChamber: true} )
-        this.interval = setInterval(() => {
-            const chamber = Math.ceil(Math.random() * 8)
-            this.setState( { spinningChamber: false } )
-        }, 2000)
     }
-
-    showSpinning = () => {
-        if (this.state.spinningChamber === true) {
-            return 'spinning the chamber and pulling trigger...!'
-        } else {
-            return ""
-        }
-    };
 
     render() {
         return(
             <div>
-                <p>
-                    {this.showSpinning()}
-                </p>
-                <button type="button" onClick = { this.triggerPull }>
-                    pull the trigger</button>
+                <p></p>
+                <button type="button" onClick = {() => {this.handleTriggerPull()}}>Pull Trigger</button>
             </div>
         )
     }
 }
 
 
-export default Roulette;
+export default Roulette; 
