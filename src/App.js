@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Route, Switch } from 'react-router-dom'
 import './App.css';
 // import Messages from './messages-app/Messages';
 // import TheDate from './state/TheDate';
@@ -10,6 +11,12 @@ import Tabs from './state/Tabs';
 import Accordion from './state/state-drills/Accordion';
 import DemonymApp from './api-requests/demonymapp/demonymApp';
 // import timer from './api-requests/test'
+import AppLang from './lang-context/AppLang'
+import HomeElement from './RoutePractice/Home'
+import Nav from './RoutePractice/Nav'
+import OtherLinks from './RoutePractice/OtherLinks'
+import AboutMe from './RoutePractice/AboutMe'
+
 
 
 
@@ -61,6 +68,34 @@ class App extends Component {
         <Accordion sections={sections} />
         <hr/>
         <DemonymApp />
+        <hr/>
+        <Nav/>
+        <Switch>
+            <Route
+                path='/' exact
+                render={(props) => (
+                  <HomeElement 
+                      {...props} 
+                      title={'HOME PAGE'}/>
+                )}
+            />
+            <Route
+                path='/aboutme'
+                render={(props) => (
+                  <AboutMe 
+                      {...props} 
+                      title={'About Me'}/>
+                )}
+            />
+            <Route
+                path='/otherstuff'
+                render={(props) => (
+                  <OtherLinks 
+                      {...props} 
+                      title={'Other Links'}/>
+                )}
+            />
+        </Switch>
       </div>
     );
   };
