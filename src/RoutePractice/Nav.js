@@ -17,7 +17,7 @@ function Nav() {
                 </Link>
             </li>
             <li>
-                <Link to='/otherstuff'>
+                <Link to='/otherlinks'>
                     Other Stuff
                 </Link>
             </li>

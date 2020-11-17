@@ -15,7 +15,8 @@ import AppLang from './lang-context/AppLang'
 import HomeElement from './RoutePractice/Home'
 import Nav from './RoutePractice/Nav'
 import OtherLinks from './RoutePractice/OtherLinks'
-import AboutMe from './RoutePractice/AboutMe'
+import AboutMe from './RoutePractice/AboutMe';
+import ApiLink from './RoutePractice/ApiLink'
 
 
 
@@ -88,11 +89,21 @@ class App extends Component {
                 )}
             />
             <Route
-                path='/otherstuff'
+                path='/otherlinks' exact
                 render={(props) => (
                   <OtherLinks 
                       {...props} 
                       title={'Other Links'}/>
+                )}
+            />
+            <Route
+                path='/otherlinks/:id'
+                // component={ApiLink}
+                render={(props) => (
+                  <ApiLink 
+                      {...props} 
+                      title={'API LINK TITLE'}
+                />
                 )}
             />
         </Switch>

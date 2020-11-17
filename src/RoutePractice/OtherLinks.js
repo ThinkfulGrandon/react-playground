@@ -35,11 +35,15 @@ class OtherLinks extends React.Component {
                 <ul>
                 {Object.keys(this.state).length === 0 
                         ? "" 
-                        : console.log(this.state.api[0].entries)
-                        // this.state.api.map(links => (
-                            
-                        //     <li></li>
-                        // ))
+                        : 
+                        // console.log(this.state.api[0].entries)
+                        this.state.api[0].entries.map((links, idx) => 
+                            (
+                            <li key={idx}>
+                                <Link to={`/OtherLinks/${links.type}`}>{links.name}</Link>
+                            </li>
+                            )
+                        )
                 }
                 </ul>
             </div>
